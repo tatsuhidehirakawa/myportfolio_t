@@ -5,7 +5,7 @@ services:
     container_name: 901tol_dev
     build: ./t_901tol_dev
     volumes:
-      - ../../myportfolio_k:/usr/src/dev
+      - ../:/usr/src/dev
     working_dir: /usr/src/dev
     ports:
       - "5555:5555"
