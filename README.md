@@ -5,13 +5,15 @@ Docker container for Web development.
 Include Git, Docker, GNU Make amd Vim in Ubuntu.  
 
 2. Boot procedure.  
-  2-1. Boot procedure A ( Use Makefile / Strongly recomended )  
+2-1. Boot procedure A ( Use "Makefile" / Strongly recomended )  
 ```
+cd myportfolio_t
 make initdev
 ```
-  2-2.Boot procedure B(Not use Makefile)  
+2-2.Boot procedure B(Not use "Makefile")  
 ```
-cd myportfolio_t && docker compose up -d
+cd myportfolio_t
+docker compose up -d
 ```  
 7. Directory structure diagram (overall/excerpt)  
 ```
