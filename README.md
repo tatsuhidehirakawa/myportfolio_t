@@ -10,7 +10,7 @@ cd myportfolio_t
 docker compose up -d
 docker exec -it 901tol_dev bash
 ```  
-7. Directory structure diagram (overall/excerpt)  
+5. Directory structure diagram (overall/excerpt)  
 ```
 myportfolio_t
   ├─k_901tol_dev
