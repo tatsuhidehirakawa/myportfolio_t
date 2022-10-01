@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  901tol_dev:
+    container_name: 901tol_dev
+    build: .
+    volumes:
+      - ../../myportfolio_k:/usr/src/dev
+    working_dir: /usr/src/dev
+    ports:
+      - "5555:5555"
+    tty: true
+    stdin_open: true
+    # networks:
+    #   - myportfolio_k_dev_network
+
+# networks:
+#   myportfolio_k_dev_network:
+#     driver: bridge
+
+
+
+
+
+
+#---note---+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+----#
+# db-storeが生成されるような行為を行うときには「.sql」ファイルを
+# 格納していないと初期化処理がスキップされるので注意！
+
+# Dockerfile：コンテナ自体の初期設定のみ(動作に必要なツールのインストールと設定変更)記載
+# docker-compose.yml：環境依存情報のみ(ポートとかストレージとか、プログラムの起動コマンドとか)記載
