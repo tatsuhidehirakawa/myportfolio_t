@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-WORKDIR /usr/src/devtools
+WORKDIR /usr/src/dev
 
 RUN ["apt-get", "update"]
 # Install git.
