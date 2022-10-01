@@ -8,6 +8,7 @@ Include Git, Docker, GNU Make amd Vim in Ubuntu.
 ```
 cd myportfolio_t
 docker compose up -d
+docker exec -it 901tol_dev bash
 ```  
 7. Directory structure diagram (overall/excerpt)  
 ```
