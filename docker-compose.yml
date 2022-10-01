@@ -5,7 +5,8 @@ services:
     container_name: 901tol_dev
     build: ./t_901tol_dev
     volumes:
-      - ../:/usr/src/dev
+      - ../:/usr/src/dev                            # SorceCode
+      - /var/run/docker.sock:/var/run/docker.sock   # DooD
     working_dir: /usr/src/dev
     ports:
       - "5555:5555"
