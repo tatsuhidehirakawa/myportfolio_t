@@ -13,8 +13,8 @@ cd myportfolio_k && make -v && docker -v && git --version && vim -version
 ```
 myportfolio_t
   ├─k_901tol_dev
-  |   └─Dockerfile
-  ├─docker-compose.yml
-  ├─Makefile
+  |   ├─901tol_dev           # Storage area for jigs.
+  |   |  └─Dockerfile
+  |   └─docker-compose.yml   # Boot from here.
   └─README.md
 ```
