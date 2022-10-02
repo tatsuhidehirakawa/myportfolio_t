@@ -3,13 +3,13 @@ services:
 
   901tol_dev:
     container_name: 901tol_dev
-    build: ./t_901tol_dev
+    build: ./901tol_dev
     volumes:
-      - ../:/usr/src/dev                            # for SorceCode
+      - ../../:/usr/src/dev                         # for SorceCode
       - /var/run/docker.sock:/var/run/docker.sock   # for DooD
     working_dir: /usr/src/dev
     ports:
-      - "5555:5555"
+      - "2345:2345"
     tty: true
     stdin_open: true
     # networks:
