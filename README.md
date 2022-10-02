@@ -7,7 +7,8 @@ Ubuntu container with Git, Docker (DooD), GNU Make and Vim installed.
 2. Boot procedure.  
 ```
 cd myportfolio_t; docker compose up -d; docker exec -it 901tol_dev bash
-cd myportfolio_k && make -v && docker -v && git --version && vim -version
+make -v && docker -v && git --version && vim -version
+cd myportfolio_k
 ```  
 5. Directory structure diagram (overall/excerpt)  
 ```
