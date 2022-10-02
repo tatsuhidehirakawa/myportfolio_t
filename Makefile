@@ -1,5 +1,6 @@
 .PHONY: init
 
+
 initdev:
 	@docker compose up
 
@@ -27,3 +28,7 @@ yyyyyyy:
 clonenv:
 	@git clone https://github.com/tatsuhidehirakawa/myportfolio_k.git
 
+# maketst:
+# 	@mkdir testingMakecmd && touch testingMakecmd/testingSuccess.txt
+# 	@echo "test success!"
+# 	@echo "Please delete testingMakecmd/testingSuccess.txt after maketest success."
