@@ -2,7 +2,7 @@
 
 1. Overview  
 Docker container for Web development.  
-Include Git, Docker(DooD), GNU Make amd Vim on Ubuntu.  
+Ubuntu container with Git, Docker (DooD), GNU Make and Vim installed.
 
 2. Boot procedure.  
 ```
