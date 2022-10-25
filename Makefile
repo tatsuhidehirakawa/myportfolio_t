@@ -2,10 +2,10 @@
 
 #---[ 1. system boot ]-------------------------------------------------------
 k:
-	git clone -b develop https://github.com/tatsuhidehirakawa/myportfolio_k.git
-	cd myportfolio_k && git checkout feature-0.1.2.0
-	cd myportfolio_k && git checkout hotfix-0.1.2.1
-	cd myportfolio_k && git branch -a
+	cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/myportfolio_k.git
+	cd .. && cd myportfolio_k && git checkout feature-0.1.2.0
+	cd .. && cd myportfolio_k && git checkout hotfix-0.1.2.1
+	cd .. && cd myportfolio_k && git branch -a
 
 #---[ 4. Repository build and destroy ]---------------------------------------------
 
