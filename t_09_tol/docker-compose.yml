@@ -15,14 +15,21 @@ services:
     # networks:
     #   - myportfolio_k_dev_network
 
+  910tol_dev:
+    container_name: 910tol_dev
+    build: ./910tol_dev
+    tty: true
+    volumes:
+      - ../../:/go/src
+    ports:
+      - "2345:2345"
+      # Port No of Host(non-overlapable):Port No of Container(overlappable)
+    # networks:
+    #   - myportfolio_k_dev_network
+
 # networks:
 #   myportfolio_k_dev_network:
 #     driver: bridge
-
-
-
-
-
 
 #---note---+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+----#
 # db-storeが生成されるような行為を行うときには「.sql」ファイルを
