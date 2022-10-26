@@ -4,9 +4,13 @@
 t.b:
 	cd t_09_tol && docker compose up -d
 
-s.c:
+s.c.tmp:
+	cd .. && git clone -b hotfix-0.2.5.1 https://github.com/tatsuhidehirakawa/myportfolio_k.git
+
+s.c.all:
 	cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/myportfolio_k.git
 	cd ../myportfolio_k && git checkout feature-0.1.2.0
+	cd ../myportfolio_k && git checkout hotfix-0.2.5.1
 
 s.c.esc:
 	# cd ../myportfolio_k && git checkout hotfix-0.1.2.1
@@ -18,6 +22,12 @@ s.b:
 
 s.api.b:
 	cd ../myportfolio_k && cd k_02_dev && docker compose up $(c)
+
+s.c.wbs
+	docker exec -it '110wbs_dev sh'
+
+s.c.api
+	docker exec -it 124api_dev bash
 
 s.api.d:
 	docker stop $(c)
