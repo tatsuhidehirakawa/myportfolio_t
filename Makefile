@@ -23,10 +23,10 @@ s.b:
 s.api.b:
 	cd ../myportfolio_k && cd k_02_dev && docker compose up $(c)
 
-s.c.wbs
+s.c.wbs:
 	docker exec -it '110wbs_dev sh'
 
-s.c.api
+s.c.api:
 	docker exec -it 124api_dev bash
 
 s.api.d:
