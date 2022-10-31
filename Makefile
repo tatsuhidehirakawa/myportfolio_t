@@ -8,14 +8,19 @@ s/c.tmp:
 	cd .. && git clone -b hotfix-0.2.5.1 https://github.com/tatsuhidehirakawa/myportfolio_k.git
 
 s/g.c/all:
-	cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/myportfolio_k.git
-	cd ../myportfolio_k && git checkout hotfix-0.2.5.1
-	cd ../myportfolio_k && git checkout feature-0.1.2.0
+	@cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/myportfolio_k.git
+	# @cd ../myportfolio_k && git checkout hotfix-0.2.5.1
+	# @cd ../myportfolio_k && git checkout feature-0.1.4.0
+	@cd ../myportfolio_k && git checkout hotfix-0.1.3.2
+	cd ../myportfolio_k && git branch -a
 
 s/c.esc:
 	# cd ../myportfolio_k && git checkout hotfix-0.1.2.1
 	# cd ../myportfolio_k && git checkout hotfix-0.2.5.1
 	cd ../myportfolio_k && git branch -a
+
+s/d.c.u/w:
+	@cd ../myportfolio_k && make d.c.u/w
 
 s/d.c.u:
 	cd ../myportfolio_k && make init.d
@@ -73,3 +78,14 @@ xx.test:
 	docker images -a -f\
 	docker container ls -a\
 	docker system df
+
+s/g.c:
+	@cd ../myportfolio_k && git config --global user.email "tatsuhide.hirakawa+s@hirasyo.com"
+	@cd ../myportfolio_k && git config --global user.name "Tatsuhide Hirakawa"
+
+s/g.p.d:
+	cd ../myportfolio_k && git push --delete origin $(b)
+	@cd ../myportfolio_k && git branch -a
+
+s/pg_r:
+	@cd ../myportfolio_k && make pg_restore container_name=134dbs_dev file_name=134dbs_dev.sql
