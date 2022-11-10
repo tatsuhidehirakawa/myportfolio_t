@@ -21,11 +21,8 @@ s/c.esc:
 	# cd ../STGprd_devpkg && git checkout hotfix-0.2.5.1
 	cd ../STGprd_devpkg && git branch -a
 
-s/d.c.u/w:
-	@cd ../STGprd_devpkg && make d.c.u/w
-
-s/d.c.u/dev:
-	cd ../STGprd_devpkg && make d.c.u/dev
+s/init.dev:
+	cd ../STGprd_devpkg && make init.dev
 
 s/g.p:
 	cd ../STGprd_devpkg && git push
@@ -34,7 +31,7 @@ s/g.b:
 	cd ../STGprd_devpkg && git branch -a
 
 s.api.b:
-	cd ../STGprd_devpkg && cd k_02_dev && docker compose up $(c)
+	cd ../STGprd_devpkg && cd s_03_dev && docker compose up $(c)
 
 s.c.wbs:
 	docker exec -it '110wbs_dev sh'
