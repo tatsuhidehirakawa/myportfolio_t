@@ -1,28 +1,53 @@
 #.PHONY:
 
-#---[ 1. system boot ]-------------------------------------------------------
-t.b:
-	cd t_09_tol && docker compose up -d
+#---[ 1. System boot ]-------------------------------------------------------
 
-s/c.tmp:
-	cd .. && git clone -b hotfix-0.2.5.1 https://github.com/tatsuhidehirakawa/STGprd_devpkg.git
+stgprd/init.dev: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
+	cd ../STGprd_devpkg && make init.dev
 
-s/g.c/all:
-	@cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/STGprd_devpkg.git
-	@cd ../STGprd_devpkg && git checkout feature-0.2.6.0
-	# @cd ../STGprd_devpkg && git checkout hotfix-0.2.6.1
-	@cd ../STGprd_devpkg && git checkout feature-0.1.4.0
-	# @cd ../STGprd_devpkg && git checkout STGprd_devpkg
+stgprd/init.tst: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
+	cd ../STGprd_devpkg && make init.tst
+
+stgprd/init.stg: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
+	cd ../STGprd_devpkg && make init.stg
+
+#---[ 2. Git Manipulation ]-------------------------------------------------------
+
+stgprd/clone.branch: ## Cloning remote branch.(cf. "make stgprd/clone.branch branchName=feature-0.1.5.0")
+	cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/STGprd_devpkg.git
+	cd ../STGprd_devpkg && git checkout $(branchName)
 	cd ../STGprd_devpkg && git branch -a
 	@echo "Cloning was successfully completed!"
+
+stgprd/create.branch: ## Delete remote branch.(cf. "make stgprd/create.branch branchName=feature-0.1.5.0")
+	cd ../STGprd_devpkg && git checkout develop
+	cd ../STGprd_devpkg && git branch -a
+	cd ../STGprd_devpkg && git branch $(branchName)
+	cd ../STGprd_devpkg && git push -u origin $(branchName)
+	cd ../STGprd_devpkg && git checkout develop
+	cd ../STGprd_devpkg && git branch -a
+	@echo "Create $(branchName) was successfully completed!"
+
+stgprd/delete.branch: ## Delete remote branch.(cf. "make stgprd/delete.branch branchName=feature-0.1.5.0")
+	cd ../STGprd_devpkg && git push --delete origin $(branchName)
+	cd ../STGprd_devpkg && git branch -a
+
+#---[ 2. Docker Manipulation ]----------------------------------------------------
+
+all/container.purge: ## Destroy all Docker image, container and caches.  
+	@docker container ls -a; docker system df; docker stop `docker ps -q`; docker system prune --volumes -f; docker container prune -f; docker image prune -a -f; docker builder prune -f; docker images -a -f; docker container ls -a; docker system df
+
+#---------------------------------------------------------------------------------
+
+go:
+	cd t_09_tol && docker compose up 910tol_dev
 
 s/c.esc:
 	# cd ../STGprd_devpkg && git checkout hotfix-0.1.2.1
 	# cd ../STGprd_devpkg && git checkout hotfix-0.2.5.1
 	cd ../STGprd_devpkg && git branch -a
 
-s/init.dev:
-	cd ../STGprd_devpkg && make init.dev
+
 
 s/g.p:
 	cd ../STGprd_devpkg && git push
@@ -42,9 +67,7 @@ s.c.api:
 s.api.d:
 	docker stop $(c)
 
-del.b: ## Delete remote branch
-	cd ../STGprd_devpkg && git push --delete origin $(b)
-	cd ../STGprd_devpkg && git branch -a
+
 
 #---[ 4. Repository build and destroy ]---------------------------------------------
 
