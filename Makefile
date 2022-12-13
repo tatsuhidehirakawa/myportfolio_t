@@ -5,7 +5,7 @@
 stgprd/init.dev: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 	cd ../STGprd_devpkg && make init.dev
 
-stgprd/init.tst: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
+stgprd/init.tst : ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 	cd ../STGprd_devpkg && make init.tst
 
 stgprd/init.stg: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
