@@ -5,7 +5,7 @@
 stgprd/init.dev: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 	cd ../STGprd_devpkg && make init.dev
 
-stgprd/init.tst : ## Sysyem boot of development.(cf. "make stgprd/init.dev")
+stgprd/init.tst: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 	cd ../STGprd_devpkg && make init.tst
 
 stgprd/init.stg: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
@@ -14,9 +14,7 @@ stgprd/init.stg: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 #---[ 2. Git Manipulation ]-------------------------------------------------------
 
 stgprd/clone.branch: ## Cloning remote branch.(cf. "make stgprd/clone.branch branchName=feature-0.1.5.0")
-	cd .. && git clone -b develop https://github.com/tatsuhidehirakawa/STGprd_devpkg.git
-	cd ../STGprd_devpkg && git checkout $(branchName)
-	cd ../STGprd_devpkg && git branch -a
+	@cd .. && git clone -b $(branchName) https://github.com/tatsuhidehirakawa/STGprd_devpkg.git && git branch -a
 	@echo "Cloning was successfully completed!"
 
 stgprd/create.branch: ## Delete remote branch.(cf. "make stgprd/create.branch branchName=feature-0.1.5.0")
@@ -38,6 +36,16 @@ all/container.purge: ## Destroy all Docker image, container and caches.
 	@docker container ls -a; docker system df; docker stop `docker ps -q`; docker system prune --volumes -f; docker container prune -f; docker image prune -a -f; docker builder prune -f; docker images -a -f; docker container ls -a; docker system df
 
 #---------------------------------------------------------------------------------
+
+
+addtags:
+	cd ../STGprd_devpkg && git tag $(tagName)
+	cd ../STGprd_devpkg && git push origin $(tagName)
+
+# git push origin --delete v2.1.0
+
+
+
 
 go:
 	cd t_09_tol && docker compose up 910tol_dev

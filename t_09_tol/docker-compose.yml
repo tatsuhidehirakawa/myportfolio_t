@@ -15,13 +15,12 @@ services:
     # networks:
     #   - STGprd_devpkg_dev_network
 
-  ## for golang developments
   910tol_dev:
     container_name: 910tol_dev
     build: ./910tol_dev
     tty: true
     volumes:
-      - ../../STGprd_devpkg/s_01_src/124api_src/src:/go/src
+      - ../../:/go/src
     ports:
       - "2345:2345"
       # Port No of Host(non-overlapable):Port No of Container(overlappable)
