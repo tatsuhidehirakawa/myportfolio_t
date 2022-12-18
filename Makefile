@@ -14,7 +14,8 @@ stgprd/init.stg: ## Sysyem boot of development.(cf. "make stgprd/init.dev")
 #---[ 2. Git Manipulation ]-------------------------------------------------------
 
 stgprd/clone.branch: ## Cloning remote branch.(cf. "make stgprd/clone.branch branchName=feature-0.1.5.0")
-	@cd .. && git clone -b $(branchName) https://github.com/tatsuhidehirakawa/STGprd_devpkg.git && git branch -a
+	@cd .. && git clone -b $(branchName) https://github.com/tatsuhidehirakawa/STGprd_devpkg.git
+	@cd .. && git branch -a
 	@echo "Cloning was successfully completed!"
 
 stgprd/create.branch: ## Delete remote branch.(cf. "make stgprd/create.branch branchName=feature-0.1.5.0")
